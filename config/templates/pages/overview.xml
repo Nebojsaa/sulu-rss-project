@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>overview</key>
+
+    <view>pages/overview</view>
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <cacheLifetime>86400</cacheLifetime>
+
+    <meta>
+        <title lang="en">Overview</title>
+        <title lang="de">Überblick</title>
+    </meta>
+
+    <properties>
+        <property name="pages" type="smart_content">
+            <meta>
+                <title lang="en">Smart Content</title>
+                <title lang="de">Inteligente Inhalt</title>
+            </meta>
+
+            <params>
+                <param name="provider" value="pages"/>
+                <param name="max_per_page" value="8"/>
+                <param name="page_parameter" value="p"/>
+                <param name="properties" type="collection">
+                    <param name="article" value="article"/>
+                    <param name="excerptTitle" value="excerpt.title"/>
+                    <param name="excerptTags" value="excerpt.tags"/>
+                    <param name="excerptImages" value="excerpt.images"/>
+                    <param name="excerptDescription" value="excerpt.description"/>
+                </param>
+                <param name="present_as" type="collection">
+                    <param name="two">
+                        <meta>
+                            <title lang="en">Two columns</title>
+                        </meta>
+                    </param>
+                    <param name="one">
+                        <meta>
+                            <title lang="en">One column</title>
+                        </meta>
+                    </param>
+                </param>
+            </params>
+        </property>
+    </properties>
+</template>

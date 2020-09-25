@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <ul class="pagination">
+        {% set page = view.pages.page %}
+
+        {% if view.pages.hasNextPage %}
+            <li><a href="{{ sulu_content_path(content.url) }}?page={{ page+1 }}">Next Page</a></li>
+        {% endif %}
+    </ul>
+
+    <div property="pages">
+        {% for page in content.pages %}
+            <div class="col-lg-{{ view.pages.presentAs == 'two' ? '6' : '12' }}">
+                <h2>
+                    <a href="{{ sulu_content_path(page.url) }}">{{ page.title }}</a>
+                </h2>
+                <p>
+                    <i>{{ page.excerptTitle }}</i> | <i>{{ page.excerptTags|join(', ') }}</i>
+                </p>
+                {% if page.excerptImages|length > 0 %}
+                    <img src="{{ page.excerptImages[0].thumbnails['50x50'] }}" alt="{{ page.excerptImages[0].title }}"/>
+                {% endif %}
+                {% autoescape false %}
+                    {{ page.article }}
+                {% endautoescape %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
