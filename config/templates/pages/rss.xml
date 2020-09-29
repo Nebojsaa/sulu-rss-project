@@ -3,10 +3,10 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <key>overview</key>
+    <key>rss</key>
 
-    <view>pages/overview</view>
-    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <view>templates/rss</view>
+    <controller>App\Controller\Website\RssController::renderAction</controller>
     <cacheLifetime>86400</cacheLifetime>
 
     <meta>
@@ -51,7 +51,7 @@
 
             <params>
                 <param name="provider" value="pages"/>
-                <param name="max_per_page" value="8"/>
+                <param name="max_per_page" value="5"/>
                 <param name="page_parameter" value="p"/>
                 <param name="properties" type="collection">
                     <param name="article" value="article"/>
